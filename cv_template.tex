@@ -1,0 +1,130 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------- BASIC ----------
+\usepackage[margin=2.0cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+\usepackage[british]{babel}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ---------- COLOR ----------
+\definecolor{SoftBlue}{HTML}{245EA8} % мягкий синий
+
+% ---------- DATE COLUMN WIDTH ----------
+\newlength{\datecolw}
+\setlength{\datecolw}{4.0cm} % ширина колонки с датами (чтобы не переносились)
+
+% ---------- SECTION HEADING ----------
+\newcommand{\cvsection}[1]{%
+  \vspace{8pt}
+  {\large\bfseries\color{SoftBlue} #1}\\[-0.3ex]%
+  {\color{SoftBlue}\rule{\linewidth}{0.4pt}}\\[4pt]%
+}
+
+% ---------- SUMMARY block ----------
+\newcommand{\summaryblock}[1]{%
+  {\color{SoftBlue}\rule{\linewidth}{0.4pt}}\\[4pt]%
+  {\small #1}\par
+  
+  \vspace{4pt}{\color{SoftBlue}\rule{\linewidth}{0.4pt}}\\[4pt]%
+}
+
+% ---------- ENTRY----------
+% #1 dates  #2 title  #3 company/location  #4 items (\item ... )
+\newcommand{\entry}[4]{%
+  \noindent
+
+% ------- PERFECT BASELINE ALIGNMENT -------
+\noindent
+\begin{tabularx}{\textwidth}{@{}p{\datecolw}@{}X@{}}
+  \raisebox{0.10ex}{\small\color{SoftBlue}#1} & \textbf{\raisebox{0.10ex}{#2}}\\[-0.3ex]
+  & {#3}
+\end{tabularx}
+  
+  \vspace{-2pt}
+  \begin{list}{\textcolor{black!80}{\large\textbullet}}{%
+      \setlength{\leftmargin}{\datecolw}
+      \setlength{\labelsep}{1.0em}
+      \setlength{\itemsep}{3pt}
+      \setlength{\parsep}{0pt}
+    }
+    #4
+  \end{list}
+  \vspace{6pt}
+}
+
+
+\begin{document}
+\pagestyle{empty}
+
+
+% ---------- HEADER ----------
+\begin{center}
+  {\LARGE\bfseries\itshape\color{SoftBlue} Your Name}\\[6pt]
+  Your City, Your Country\\
+  +00 000 0000000 \;|\; \href{mailto:email@example.com}{email@example.com}\\
+  GitHub: \href{https://github.com/yourusername}{github.com/yourusername}
+\end{center}
+\vspace{8pt}
+
+% ---------- SUMMARY ----------
+\summaryblock{%
+This is an example summary. Replace this text with a short overview describing your professional background, core strengths, industry expertise and key technical skills. Your summary text, your summary text, your summary text. Add 3–4 lines that highlight your profile in a concise and impactful way.
+}
+
+% ---------- WORK EXPERIENCE ----------
+\cvsection{Work Experience}
+
+\entry
+{YYYY -- YYYY}
+{Job Title}
+{Company Name, City, Country}
+{
+  \item Description of your responsibilities or achievements.
+  \item Your bullet point text, your bullet point text, your bullet point text.
+  \item Example bullet point describing a project, improvement or result.
+}
+
+\entry
+{YYYY -- YYYY}
+{Another Job Title}
+{Another Company, City, Country}
+{
+  \item Primary task or core responsibility.
+  \item Your bullet point text, your bullet point text.
+  \item Achievement or contribution example.
+}
+\entry
+{YYYY -- YYYY}
+{Earlier Job Title}
+{Company Name, City, Country}
+{
+  \item Short description of responsibilities.
+  \item Highlight one or two key tasks or achievements.
+}
+
+% ---------- EDUCATION ----------
+\cvsection{Education}
+\textbf{University Name, Country}\\
+\textit{Degree Title (e.g., Master’s in Example Field)}\\
+Graduated: Month YYYY\\
+Focus areas: your topics (e.g. Data Science, Statistics, Finance).
+
+% ---------- SKILLS ----------
+\cvsection{Skills}
+\textbf{Technical Skills}\\[-2pt]
+Python, SQL, Excel, Power BI, LaTeX, or any tools you use.
+
+\vspace{4pt}
+\textbf{Languages}\\[-2pt]
+English (Level), German (Level), French (Level), etc.
+
+
+\end{document}
