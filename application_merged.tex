@@ -1,0 +1,21 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{pdfpages}
+
+% If \buildDir is not defined elsewhere, default to the current directory:
+\providecommand*{\buildDir}{./}
+
+% Files:
+\newcommand*{\coverletter}{\buildDir cover_letter_template.pdf}
+\newcommand*{\cv}{\buildDir cv_template.pdf}
+
+\begin{document}
+
+% First: cover letter
+\includepdf[pages=-]{\coverletter}
+
+% Second: CV
+\includepdf[pages=-]{\cv}
+
+\end{document}
