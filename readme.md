@@ -16,6 +16,12 @@ All content is anonymized and can be easily adapted for any professional profile
 - `cover_letter_template.tex` — main LaTeX source  
 - `cover_letter_template.pdf` — compiled example output
 
+### **Merged Application PDF**
+Application combines two PDFs into a single document.
+The file uses the pdfpages package to include the PDFs in this order.
+- `application_merged.tex` — main LaTeX source  
+- `application_merged.pdf` — compiled example output
+
 ### **License**
 - `licence.txt` — MIT License (free for personal & commercial use)
 
@@ -63,6 +69,22 @@ The cover letter includes:
 
 ---
 
+## 🗂️ Merged Application Preview
+
+Example output PDF combining the Cover Letter and CV:
+
+👉 [`application_merged.pdf`](./application_merged.pdf)
+
+The merged application includes:
+- Cover Letter as the first section  
+- CV as the second section  
+- automatic PDF merging using the `pdfpages` package  
+- consistent typography and formatting across both documents  
+
+You can compile it with:
+
+    pdflatex application_merged.tex
+
 ## 🛠 Dependencies
 
 To compile the templates, you need a LaTeX distribution such as:
@@ -82,4 +104,5 @@ Recommended editor:
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/ma-ro-dev-code/latex-cv-and-cover_letter-template.git
+
 
