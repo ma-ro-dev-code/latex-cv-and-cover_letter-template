@@ -11,6 +11,10 @@ All content is anonymized and can be easily adapted for any professional profile
 ### **CV Template**
 - `cv_template.tex` — main LaTeX source  
 - `cv_template.pdf` — compiled example output
+- `workday_compatible_cv_template.tex` — main LaTeX source  
+- `workday_compatible_cv_template.pdf` — compiled example output
+
+
 
 ### **Cover Letter Template**
 - `cover_letter_template.tex` — main LaTeX source  
