@@ -1,0 +1,194 @@
+% ---------------------------------------------------------
+% DATE FORMAT CONVENTION
+% ---------------------------------------------------------
+% Dates in this template follow the format "mmm yyyy"
+% (first three letters of the month + four-digit year).
+%
+% This format is intentionally chosen to:
+% - keep all date ranges on a single line without wrapping,
+% - ensure consistent visual alignment across entries,
+% - remain language-neutral and internationally readable,
+% - balance compactness with full clarity of the time period.
+%
+% Example: "Jan 2021 -- Dec 2023"
+%
+% Using full month names or numeric formats may cause
+% line breaks or misalignment in the date column.
+% ---------------------------------------------------------
+
+\documentclass[11pt,a4paper]{article}
+
+% ---------- BASIC ----------
+\usepackage[margin=2.0cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+\usepackage[british]{babel}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ---------- COLOR ----------
+\definecolor{SoftBlue}{HTML}{245EA8} % мягкий синий
+
+% ---------- DATE COLUMN WIDTH ----------
+\newlength{\datecolw}
+\setlength{\datecolw}{4.0cm} % ширина колонки с датами (чтобы не переносились)
+
+% ---------- SECTION HEADING ----------
+
+\newcommand{\cvsection}[1]{%
+  \vspace{0pt}%
+  {\large\bfseries\color{SoftBlue} #1}\\[-2ex]% %сдесь --> чем больше число с минусом тем ближе к голубой линии
+  {\color{SoftBlue}\rule{\linewidth}{0.4pt}}\\[0.2ex]%
+}
+
+% ---------- SUMMARY block ----------
+\newcommand{\summaryblock}[1]{%
+  {\color{SoftBlue}\rule{\linewidth}{0.4pt}}\\[2pt]%
+  {\small #1}\par 
+  \vspace{1pt}{\color{SoftBlue}\rule{\linewidth}{0.4pt}}\\[2pt]%
+}
+%-----------------------------------------------------------------------------------------------------------------------------------------------------
+\newcommand{\entry}[4]{%
+  \noindent
+  {\small\color{SoftBlue}#1}\par
+  \textbf{#2}\par
+  {#3}\par
+
+  \vspace{-2pt}
+  \begin{list}{\textcolor{black!80}{\large\textbullet}}{%
+    \setlength{\leftmargin}{1.5em}
+    \setlength{\labelsep}{0.6em}
+    \setlength{\itemsep}{0.5pt}
+    \setlength{\parsep}{0pt}
+  }
+    #4
+  \end{list}
+  \vspace{6pt}
+}
+%-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+\begin{document}
+\pagestyle{empty}
+
+% ---------- HEADER ----------
+\begin{center}
+  {\LARGE\bfseries\itshape\color{SoftBlue} Your Name}\\[3pt]
+  Your Address, Postal Code, City, Country\\
+  +XX XXX XXX XX XX \;|\; \href{mailto:your.email@example.com}{your.email@example.com}\\
+  GitHub: \href{https://github.com/your-username}{github.com/your-username}
+\end{center}
+\vspace{0.005pt}
+
+% ---------- SUMMARY ----------
+\summaryblock{%
+Your professional summary. Briefly describe your background, main areas of experience, relevant qualifications and the type of role you are targeting. Keep this section concise and tailored to the position.
+}
+
+%-----------PROFESSIONAL DEVELOPMENT-------
+\cvsection{Professional Development}
+\entry
+{Mon YYYY -- present}
+{Your Professional Development / Qualification}
+{}
+{\vspace{-5pt}
+\item Your current qualification, certification or training
+\item Your relevant technical or professional development
+\item Your language studies or other ongoing learning
+\item Your additional certificate or completed course
+}
+\vspace{-5pt}
+
+% ---------- WORK EXPERIENCE ----------
+\cvsection{Work Experience}
+\entry
+{Mon YYYY -- Mon YYYY}
+{Your Job Title}
+{Your Company, City, Country}
+{\vspace{-5pt}
+\item Describe your key responsibility or area of ownership
+\item Describe a recurring task, reporting responsibility or analytical activity
+\item Describe a project, review, assessment or process you performed
+\item Describe relevant tools, methods, controls or regulatory requirements you worked with
+\item Describe collaboration with internal or external stakeholders
+\item Describe a process improvement, implementation or measurable contribution
+}
+\vspace{-10pt}
+
+\entry
+{Mon YYYY -- Mon YYYY}
+{Your Job Title}
+{Your Company, City, Country}
+{\vspace{-5pt}
+\item Describe your main responsibility in this position
+\item Describe reporting, monitoring or oversight activities
+\item Describe analysis, documentation or transaction-related work
+\item Describe relevant data, systems or processes you worked with
+\item Describe coordination with colleagues, clients or external stakeholders
+}
+\vspace{-10pt}
+
+\entry
+{Mon YYYY -- Mon YYYY}
+{Your Job Title}
+{Your Company, City, Country}
+{\vspace{-5pt}
+\item Describe your main responsibilities
+\item Describe your analytical, financial, operational or technical work
+\item Describe reviews, controls, documentation or reporting you performed
+\item Describe a relevant project or additional responsibility
+}
+\vspace{-10pt}
+
+\entry
+{Mon YYYY -- Mon YYYY}
+{Your Job Title {\footnotesize\textit{(optional contract type)}}}
+{Your Company, City, Country}
+{\vspace{-5pt}
+\item Describe your first key responsibility
+\item Describe your second key responsibility
+\item Describe your third key responsibility
+}
+\vspace{-10pt}
+
+\entry
+{Mon YYYY -- Mon YYYY}
+{Your Job Title}
+{Your Company, City, Country}
+{\vspace{-5pt}
+\item Describe your responsibilities, projects or operational support
+\item Add another relevant responsibility or achievement
+}
+\vspace{-5pt}
+
+% ---------- EDUCATION ----------
+\cvsection{Education}
+\textbf{Your University, City, Country}\\
+\textit{Your Degree / Qualification}\\
+Graduated: Mon YYYY\\
+Focus: Your Major, Specialisation, Relevant Subjects\\\vspace{-5pt}
+
+% ---------- SKILLS ----------
+\cvsection{Skills}
+\textbf{Technical Skills}\\[-2pt]
+Your Skill 1, Your Skill 2, Your Skill 3, Your Software / Programming Language, Your Tool
+
+\vspace{4pt}
+\textbf{Languages}\\[-2pt]
+Language 1 (level),
+Language 2 (level),
+Language 3 (level)\\[-2pt]
+
+% ---------- PROJECTS ----------
+\cvsection{Projects (GitHub)}
+\textbf{Your Project Name}\\[-2pt]
+Briefly describe your project, the problem it addresses, the tools or technologies used, and the main output or result.\\[-5pt]
+
+GitHub: \href{https://github.com/your-username}{github.com/your-username}
+
+\end{document}
